@@ -1,0 +1,126 @@
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    border-radius: 4px;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0,  0.3);
+    padding: 16px;
+}
+
+.carousel {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.carousel .pannels > a {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    /* opacity: 0; 
+    transition: all .3s;组件优化代码中不需要*/
+    z-index: 1;
+}
+
+/* .carousel .pannels > a.active {
+    opacity: 1;
+    z-index: 1;
+} 组件优化代码中不需要*/
+
+.carousel .pannels > a.active {
+    z-index: 10;
+}
+
+.carousel .pannels > a:nth-child(even){
+    background-color: lightblue;
+}
+
+.carousel .pannels > a:nth-child(odd){
+    background-color: lightpink;
+}
+
+.carousel .arrow {
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    top: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(31,45,61,.11);
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .3s;
+}
+
+.carousel  .arrow::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    transform: rotate(-45deg);
+}
+
+.carousel .arrow-pre {
+    left: 10px;
+    transform: translateX(-10px) translateY(-50%);
+}
+
+.carousel:hover  .arrow-pre {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+}
+
+.carousel  .arrow-next {
+    right: 10px;
+    transform: translateX(10px) translateY(-50%);
+}
+
+.carousel:hover  .arrow-next {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+}
+
+.carousel  .arrow.arrow-next::before {
+    transform: rotate(135deg);
+}
+
+.carousel .indicators {
+    z-index: 100;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.carousel .indicators > li {
+    display: inline-block;
+    padding: 5px 0;
+    cursor: pointer;
+}
+.carousel .indicators > li::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #c8c4cc;
+    transition: all .3s;
+}
+
+.carousel .indicators > li.active::before {
+    background: #fff;
+}
+
+
